@@ -23,5 +23,5 @@ Install [Vagga](https://vagga.readthedocs.io/en/latest/installation.html), then 
 - `vagga wallet` - run Mochimo `wallet` binary
 - `vagga wallet-pf` - try to forward ports and run `wallet`. AMD64 only
 - `vagga wallet-pf-native` - build portforwarder-rs from scratch, then run `wallet-pf`
-- `vagga backup` - copy `wallet.wal` from `installation`
-- `vagga restore` - copy `wallet.wal` to `installation`
+- `vagga backup` - copy `wallet.wal` from `installation` to main directory (where README is)
+- `vagga restore` - copy `wallet.wal` from main directory (where README is) to `installation`
