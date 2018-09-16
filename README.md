@@ -9,6 +9,8 @@ Automatically:
 - generates new `wallet.dat`
 - runs `wallet` with hardcoded peer address for faster connection
 
+![Screenshot of running script](screenshot1.png)
+
 ## Installation
 
 Install [Vagga](https://vagga.readthedocs.io/en/latest/installation.html), then download this repo and run commands.
