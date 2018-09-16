@@ -1,0 +1,35 @@
+containers:
+  runtime:
+    setup:
+      - !Ubuntu xenial
+      - !Install
+        - build-essential
+        - git
+        - ca-certificates
+        - vim
+        - wget
+  runtime-native:
+    setup:
+      - !Container runtime
+      - !UbuntuUniverse
+      - !Install
+        - cargo
+commands:
+  shell: !Command
+    container: runtime
+    run: "./scripts/entry.sh shell"
+  wallet: !Command
+    container: runtime
+    run: "./scripts/entry.sh wallet"
+  wallet-pf: !Command
+    container: runtime
+    run: "./scripts/entry.sh wallet-pf"
+  wallet-pf-native: !Command
+    container: runtime-native
+    run: "./scripts/entry.sh wallet-pf-native"
+  backup: !Command
+    container: runtime
+    run: "cp installation/mochi/bin/wallet.wal wallet.wal"
+  restore: !Command
+    container: runtime
+    run: "cp wallet.wal installation/mochi/bin/wallet.wal"
