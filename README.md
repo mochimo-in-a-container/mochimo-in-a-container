@@ -25,3 +25,16 @@ Install [Vagga](https://vagga.readthedocs.io/en/latest/installation.html), then 
 - `vagga wallet-pf-native` - build portforwarder-rs from scratch, then run `wallet-pf`
 - `vagga backup` - copy `wallet.wal` from `installation` to main directory (where README is)
 - `vagga restore` - copy `wallet.wal` from main directory (where README is) to `installation`
+
+All commands will install their required dependencies on first run.
+
+If you want to use existing `wallet.wal`, run `vagga wallet`, then Ctrl+C on `Enter the name of this wallet:` (generating new wallet), put your `wallet.wal` in the root directory (where README is), run `vagga restore`, then `vagga wallet-pf` (or `wallet` or `wallet-pf-native`).
+
+## Tips
+
+As of September 16, 2018, here are some known issues with `wallet` and their workarounds:
+
+- `Network status` doesn't update - use `Menu 2 -> Get a Mochimo peer list` to update it
+- `Display` doesn't show address if it has no funds - use `Menu 2 -> Display change addresses`
+- `wallet` first asks for password, then checks if file even exists - shouldn't be a problem with those scripts
+- `Menu 2 -> Edit address name` displays index from 1 to 0 (incorrect) when there are no addresses, but always fails without corrupting files, so it's just cosmetic issue
