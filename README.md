@@ -36,5 +36,5 @@ As of September 16, 2018, here are some known issues with `wallet` and their wor
 
 - `Network status` doesn't update - use `Menu 2 -> Get a Mochimo peer list` to update it
 - `Display` doesn't show address if it has no funds - use `Menu 2 -> Display change addresses`
-- `wallet` first asks for password, then checks if file even exists - shouldn't be a problem with those scripts
-- `Menu 2 -> Edit address name` displays index from 1 to 0 (incorrect) when there are no addresses, but always fails without corrupting files, so it's just cosmetic issue
+- `wallet` first asks for password, then checks if file even exists - shouldn't be a problem with `vagga wallet` script
+- `Menu 2 -> Edit address name` displays index from 1 to 0 (incorrect) when there are no addresses, but always fails without corrupting files, so it's just a cosmetic issue
