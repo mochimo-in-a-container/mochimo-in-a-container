@@ -8,6 +8,7 @@ containers:
         - ca-certificates
         - vim
         - wget
+        - tar
   runtime-native:
     setup:
       - !Container runtime

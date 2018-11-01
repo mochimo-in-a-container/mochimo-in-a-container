@@ -8,16 +8,19 @@ cd
 # first setup
 if [ ! -e initdone ]
 then
-    warn "No installation of Mochimo client found, starting the installer..."
-    echo "Link to Mochimo license: https://raw.githubusercontent.com/mochimodev/mochimo/master/LICENSE.TXT"
+    warn "No installation of Mochimo client found, starting the installer"
+    info "Using forks to pin versions"
+
+    info "Asking for license agreements"
+    echo "Link to Mochimo license: https://raw.githubusercontent.com/mochimo-in-a-container/mochimo/master/LICENSE.PDF"
     echo "Do you agree to Mochimo license?"
     user_agreement
 
-    echo "Link to MochiToolkit license: https://raw.githubusercontent.com/chrisdigity/mochitoolkit/master/LICENSE"
+    echo "Link to MochiToolkit license: https://raw.githubusercontent.com/mochimo-in-a-container/mochitoolkit/master/LICENSE"
     echo "Do you agree to MochiToolkit license?"
     user_agreement
 
-    echo "Link to portforwarder-rs license: https://raw.githubusercontent.com/pzmarzly/portforwarder-rs/master/LICENSE"
+    echo "Link to portforwarder-rs license: https://raw.githubusercontent.com/mochimo-in-a-container/portforwarder-rs/master/LICENSE"
     echo "Do you agree to portforwarder-rs license?"
     user_agreement
 
@@ -26,17 +29,24 @@ then
     chmod +x pf
 
     info "Downloading MochiToolkit"
-    git clone https://github.com/chrisdigity/mochitoolkit.git mochitoolkit --depth 1
+    git clone https://github.com/mochimo-in-a-container/mochitoolkit.git mochitoolkit --depth 1
+
+    info "Downloading Mochimo (fork without the miner)"
+    git clone https://github.com/mochimo-in-a-container/mochimo.git mochimo --depth 1
 
     info "Trying to install MochiToolkit..."
     mkdir mochi
     cp -r mochitoolkit/scripts mochi
-
-    info "Running MochiToolkit minst..."
-    ./mochi/scripts/minst
-
-    info "Cleaning up..."
     rm -rf mochitoolkit
+
+    info "Trying to compile Mochimo (fork without the miner)..."
+    cd mochimo/src
+    chmod +x makeunx
+    ./makeunx bin
+    ./makeunx install
+    cd ../..
+    cp -r mochimo/bin mochi
+    rm -rf mochimo
 
     info "Installation finished."
     touch initdone
