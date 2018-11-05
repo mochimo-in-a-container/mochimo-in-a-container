@@ -42,7 +42,7 @@ then
     info "Trying to compile Mochimo (fork without the miner)..."
     cd mochimo/src
     chmod +x makeunx
-    ./makeunx bin
+    ./makeunx bin-without-cuda
     ./makeunx install
     cd ../..
     cp -r mochimo/bin mochi
