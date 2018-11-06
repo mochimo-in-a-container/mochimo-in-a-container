@@ -17,6 +17,8 @@ Install [Vagga](https://vagga.readthedocs.io/en/latest/installation.html), then 
 
 500MB of space is required for normal installation, 1.5GB if you also build portforwarder-rs from scratch (after installation and cleanup container takes 1GB).
 
+For Windows and macOS users, there is `Vagrantfile` provided. You need [`vagrant-vagga`](https://github.com/rrader/vagrant-vagga) plugin installed.
+
 ## Commands
 
 - `vagga shell` - run `bash` in the container
