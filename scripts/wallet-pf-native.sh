@@ -2,7 +2,7 @@
 if [ ! -e pf-native ]; then
     warn "No portforwarder-rs binary found, building..."
     if [ ! -e portforwarder-rs ]; then
-        git clone https://github.com/pzmarzly/portforwarder-rs portforwarder-rs --depth 1
+        git clone https://github.com/mochimo-in-a-container/portforwarder-rs portforwarder-rs --depth 1
     fi
     cd portforwarder-rs
     cargo build
